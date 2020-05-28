@@ -26,7 +26,7 @@ const FormDate = () => {
         endDatePlaceholderText=""
         endDate={endDate}
         numberOfMonths={2}
-        showClearDates={true}
+        showClearDates={false}
         focusedInput={focus}
         onFocusChange={focus => setFocus(focus)}
         startDateId="startDateMookh"
