@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { open, close } from '../modules/form';
-import { SEARCH_FORM } from '../constants';
 import SearchButtons from '../components/SearchForm/SearchButtons';
+import SearchForm from '../components/SearchForm/SearchForm';
 
 const SearchFormWrapDiv = styled.div`
   position: fixed;
@@ -44,28 +44,6 @@ const SearchFormInnerDiv = styled.div`
   background: #fff;
 `;
 
-const SearchFormDiv = styled.div`
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  transition: all 0.3s;
-  ${props =>
-    props.open &&
-    css`
-      height: auto;
-    `}
-`;
-
-const SearchFormContentsDiv = styled.div`
-  padding: 20px 0;
-`;
-
-const SearchFormCloseBtn = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 10%;
-`;
-
 const SearchFormContainer = () => {
   const dispatch = useDispatch();
   const { isOpen, viewContents } = useSelector(({ form }) => ({ isOpen: form.isOpen, viewContents: form.viewContents }));
@@ -76,12 +54,7 @@ const SearchFormContainer = () => {
     <SearchFormWrapDiv open={isOpen}>
       <SearchFormInnerDiv>
         <SearchButtons onOpenForm={onOpenForm} />
-        <SearchFormDiv open={isOpen}>
-          {viewContents === SEARCH_FORM.TYPE.DATE && <SearchFormContentsDiv>날짜</SearchFormContentsDiv>}
-          {viewContents === SEARCH_FORM.TYPE.GUEST && <SearchFormContentsDiv>인원</SearchFormContentsDiv>}
-          {viewContents === SEARCH_FORM.TYPE.PRICE && <SearchFormContentsDiv>요금</SearchFormContentsDiv>}
-          {isOpen && <SearchFormCloseBtn onClick={onCloseForm}>닫기</SearchFormCloseBtn>}
-        </SearchFormDiv>
+        <SearchForm isOpen={isOpen} viewContents={viewContents} onCloseForm={onCloseForm} />
       </SearchFormInnerDiv>
     </SearchFormWrapDiv>
   );
