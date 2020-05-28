@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { open, close } from '../modules/form';
 import { SEARCH_FORM } from '../constants';
+import SearchButtons from '../components/SearchForm/SearchButtons';
 
 const SearchFormWrapDiv = styled.div`
   position: fixed;
@@ -43,10 +44,6 @@ const SearchFormInnerDiv = styled.div`
   background: #fff;
 `;
 
-const SearchButtonDiv = styled.div`
-  padding: 20px 0;
-`;
-
 const SearchFormDiv = styled.div`
   overflow: hidden;
   width: 100%;
@@ -69,11 +66,6 @@ const SearchFormCloseBtn = styled.button`
   right: 10%;
 `;
 
-const SearchButton = ({ formType, onOpenForm, title }) => {
-  const onClick = () => onOpenForm(formType);
-  return <button onClick={onClick}>{title}</button>;
-};
-
 const SearchFormContainer = () => {
   const dispatch = useDispatch();
   const { isOpen, viewContents } = useSelector(({ form }) => ({ isOpen: form.isOpen, viewContents: form.viewContents }));
@@ -83,12 +75,7 @@ const SearchFormContainer = () => {
   return (
     <SearchFormWrapDiv open={isOpen}>
       <SearchFormInnerDiv>
-        <SearchButtonDiv>
-          <SearchButton formType={SEARCH_FORM.TYPE.DATE} title="날짜" onOpenForm={onOpenForm} />
-          <SearchButton formType={SEARCH_FORM.TYPE.GUEST} title="인원" onOpenForm={onOpenForm} />
-          <SearchButton formType={SEARCH_FORM.TYPE.PRICE} title="요금" onOpenForm={onOpenForm} />
-          <button>검색</button>
-        </SearchButtonDiv>
+        <SearchButtons onOpenForm={onOpenForm} />
         <SearchFormDiv open={isOpen}>
           {viewContents === SEARCH_FORM.TYPE.DATE && <SearchFormContentsDiv>날짜</SearchFormContentsDiv>}
           {viewContents === SEARCH_FORM.TYPE.GUEST && <SearchFormContentsDiv>인원</SearchFormContentsDiv>}
