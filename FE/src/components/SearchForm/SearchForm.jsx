@@ -1,6 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { SEARCH_FORM } from '../../constants';
+import FormDate from './FormDate';
+import FormGuest from './FormGuest';
+import FormPrice from './FormPrice';
 
 const SearchFormDiv = styled.div`
   overflow: hidden;
@@ -27,9 +30,21 @@ const SearchFormCloseBtn = styled.button`
 const SearchForm = ({ isOpen, viewContents, onCloseForm }) => {
   return (
     <SearchFormDiv open={isOpen}>
-      {viewContents === SEARCH_FORM.TYPE.DATE && <SearchFormContentsDiv>날짜</SearchFormContentsDiv>}
-      {viewContents === SEARCH_FORM.TYPE.GUEST && <SearchFormContentsDiv>인원</SearchFormContentsDiv>}
-      {viewContents === SEARCH_FORM.TYPE.PRICE && <SearchFormContentsDiv>요금</SearchFormContentsDiv>}
+      {viewContents === SEARCH_FORM.TYPE.DATE && (
+        <SearchFormContentsDiv>
+          <FormDate />
+        </SearchFormContentsDiv>
+      )}
+      {viewContents === SEARCH_FORM.TYPE.GUEST && (
+        <SearchFormContentsDiv>
+          <FormGuest />
+        </SearchFormContentsDiv>
+      )}
+      {viewContents === SEARCH_FORM.TYPE.PRICE && (
+        <SearchFormContentsDiv>
+          <FormPrice />
+        </SearchFormContentsDiv>
+      )}
       {isOpen && <SearchFormCloseBtn onClick={onCloseForm}>닫기</SearchFormCloseBtn>}
     </SearchFormDiv>
   );
