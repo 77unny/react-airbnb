@@ -1,3 +1,6 @@
+export const MESSAGE = {
+  TITLE: '코드스쿼드 숙소리스트',
+};
 export const SEARCH_FORM = {
   TYPE: {
     DATE: 'date',
@@ -13,7 +16,7 @@ export const GUEST = {
   },
   CHILDREN: {
     TYPE: 'children',
-    TITLE: '성인',
+    TITLE: '어린이',
     SUBTITLE: '2 ~ 12세',
   },
   INFANTS: {
