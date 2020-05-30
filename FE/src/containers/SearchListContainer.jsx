@@ -16,6 +16,7 @@ const SearchListInnerDiv = styled.div`
 const SearchListDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-left: -15px;
 `;
 const SearchListContainer = () => {
   const getFetch = async () => {
