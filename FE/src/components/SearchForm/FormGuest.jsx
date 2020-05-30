@@ -36,7 +36,7 @@ const FormGuest = () => {
   const onSave = () => dispatch(save());
   return (
     <div>
-      <p>총 인원 : {totalGuest}</p>
+      <p>총 인원 : {totalGuest ? totalGuest : 0}</p>
       <GuestCounter
         type={GUEST.ADULTS.TYPE}
         title={GUEST.ADULTS.TITLE}

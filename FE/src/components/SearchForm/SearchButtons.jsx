@@ -19,9 +19,9 @@ const SearchButton = ({ formType, onOpenForm, title }) => {
 
 const SearchButtons = ({ onOpenForm }) => {
   const { checkInDate, checkOutDate } = useSelector(state => state.date);
-  const { totalGuest } = useSelector(state => state.guest);
+  const { totalGuest, infants } = useSelector(state => state.guest);
   const dateCompleted = `${checkInDate} ~ ${checkOutDate}`;
-
+  const infantsMessage = infants ? ` 유아 ${infants}명` : '';
   return (
     <SearchButtonDiv>
       <SearchButton
@@ -29,7 +29,11 @@ const SearchButtons = ({ onOpenForm }) => {
         title={checkInDate ? (checkOutDate ? dateCompleted : checkInDate) : '날짜'}
         onOpenForm={onOpenForm}
       />
-      <SearchButton formType={SEARCH_FORM.TYPE.GUEST} title={totalGuest ? `게스트 ${totalGuest}명` : '인원'} onOpenForm={onOpenForm} />
+      <SearchButton
+        formType={SEARCH_FORM.TYPE.GUEST}
+        title={totalGuest ? `게스트 ${totalGuest}명${infantsMessage} ` : '인원'}
+        onOpenForm={onOpenForm}
+      />
       <SearchButton formType={SEARCH_FORM.TYPE.PRICE} title="요금" onOpenForm={onOpenForm} />
       <SearchResultBtn>검색</SearchResultBtn>
     </SearchButtonDiv>

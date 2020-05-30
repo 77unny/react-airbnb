@@ -20,7 +20,7 @@ const SearchFormWrapDiv = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 0;
     opacity: 0;
     background: rgba(0, 0, 0, 0.5);
     transition: all 0.3s;
@@ -31,6 +31,7 @@ const SearchFormWrapDiv = styled.div`
     css`
       box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 28px;
       &::before {
+        height: 100%;
         opacity: 1;
       }
     `}
