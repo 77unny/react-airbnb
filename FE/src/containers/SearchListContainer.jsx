@@ -21,7 +21,6 @@ const SearchListDiv = styled.div`
 const SearchListContainer = () => {
   const getFetch = async () => {
     const response = await fetch(`${URL.API}/accommodations`).then(res => res.json());
-    // const response = await fetch(`${URL.MOCK}`).then(res => res.json());
     return response;
   };
   const state = useAsync(getFetch);
@@ -37,7 +36,7 @@ const SearchListContainer = () => {
   return (
     <SearchListWrapDiv>
       <SearchListInnerDiv>
-        <SearchTitle />
+        <SearchTitle totalCount={totalCount} />
         <SearchListDiv>
           {accommodations.map(accommodation => {
             return <SearchItem key={accommodation.accommodationId} contents={accommodation} width="20%" />;
