@@ -20,9 +20,10 @@
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.26.1",
     "redux": "^4.0.5",
+    "rheostat": "^4.1.1",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.0",
-    "styled-reset": "^4.1.5",
-    "rheostat": "^4.1.1"
+    "styled-reset": "^4.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
