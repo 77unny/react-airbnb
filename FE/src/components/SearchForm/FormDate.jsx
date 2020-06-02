@@ -14,9 +14,19 @@ const ResetBtn = styled.button`
 const FormDate = () => {
   const dispatch = useDispatch();
   const { startDate, endDate } = useSelector(state => state.date);
+  console.log(startDate);
   const [focus, setFocus] = useState('startDate');
   const handleOnDateChange = date => dispatch(checkDate(date));
-  const resetButton = () => <ResetBtn onClick={() => dispatch(reset())}>초기화</ResetBtn>;
+  const resetButton = () => (
+    <ResetBtn
+      onClick={() => {
+        setFocus('startDate');
+        return dispatch(reset());
+      }}
+    >
+      초기화
+    </ResetBtn>
+  );
   return (
     <div>
       <DateRangePicker
