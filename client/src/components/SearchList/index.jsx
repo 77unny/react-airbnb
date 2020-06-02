@@ -10,8 +10,13 @@ const SearchListDiv = styled.div`
 
 const SearchMoreBtn = styled.button`
   display: block;
-  width: 100%;
+  width: 50%;
   height: 40px;
+  margin: 50px auto 0;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background: #db0e65;
 `;
 
 const SearchList = ({ data }) => {
