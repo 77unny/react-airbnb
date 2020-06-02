@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import useAsync from '../utils/useAsync';
 import { URL } from '../constants/url';
-import SearchItem from '../components/SearchList/SearchItem';
 import SearchTitle from '../components/SearchList/SearchTitle';
 import SearchList from '../components/SearchList';
 
@@ -14,11 +13,7 @@ const SearchListInnerDiv = styled.div`
   padding: 5% 10%;
   background: #fff;
 `;
-const SearchListDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -15px;
-`;
+
 const SearchListContainer = () => {
   const getFetch = async () => {
     const response = await fetch(`${URL.API}/accommodations`).then(res => res.json());
@@ -32,13 +27,6 @@ const SearchListContainer = () => {
   if (!data) return null;
 
   const { totalCount, priceDistribution, accommodations } = data.data;
-
-  const searchListData = data.data.accommodations;
-  const searchListOption = {
-    items: 20,
-    preItems: 0,
-  };
-  console.log(searchListData.slice(searchListOption.preItems, searchListOption.items));
 
   return (
     <SearchListWrapDiv>
