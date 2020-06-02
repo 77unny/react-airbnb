@@ -23,6 +23,7 @@ const SearchFormWrapDiv = styled.div`
     height: 0;
     opacity: 0;
     background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
     z-index: -2;
   }
   ${props =>

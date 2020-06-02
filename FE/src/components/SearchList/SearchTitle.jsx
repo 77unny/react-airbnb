@@ -14,6 +14,7 @@ const Title = styled.h2`
   font-weight: bold;
   font-size: 32px;
 `;
+const GuestMessage = () => {};
 
 const SearchTitle = ({ totalCount }) => {
   const { totalGuest, infants } = useSelector(state => state.guest);
