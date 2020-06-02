@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import useAsync from '../utils/useAsync';
 import { URL } from '../constants/url';
 import SearchItem from '../components/SearchList/SearchItem';
 import SearchTitle from '../components/SearchList/SearchTitle';
+import SearchList from '../components/SearchList';
 
 const SearchListWrapDiv = styled.div``;
 const SearchListInnerDiv = styled.div`
@@ -31,17 +32,19 @@ const SearchListContainer = () => {
   if (!data) return null;
 
   const { totalCount, priceDistribution, accommodations } = data.data;
-  console.log(data.data);
+
+  const searchListData = data.data.accommodations;
+  const searchListOption = {
+    items: 20,
+    preItems: 0,
+  };
+  console.log(searchListData.slice(searchListOption.preItems, searchListOption.items));
 
   return (
     <SearchListWrapDiv>
       <SearchListInnerDiv>
         <SearchTitle totalCount={totalCount} />
-        <SearchListDiv>
-          {accommodations.map(accommodation => {
-            return <SearchItem key={accommodation.accommodationId} contents={accommodation} width="20%" />;
-          })}
-        </SearchListDiv>
+        <SearchList data={accommodations} />
       </SearchListInnerDiv>
     </SearchListWrapDiv>
   );

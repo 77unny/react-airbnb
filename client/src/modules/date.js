@@ -12,7 +12,7 @@ const initialState = {
   startDate: null,
   endDate: null,
   checkInDate: null,
-  cehckOutDate: null,
+  checkOutDate: null,
 };
 
 export default function date(state = initialState, action) {
@@ -31,10 +31,16 @@ export default function date(state = initialState, action) {
       let checkIn,
         checkOut = null;
       if (action.date.startDate) {
-        checkIn = `${action.date.startDate._d.getFullYear()}-${action.date.startDate._d.getMonth() + 1}-${action.date.startDate._d.getDate()}`;
+        const year = action.date.startDate._d.getFullYear();
+        const month = action.date.startDate._d.getMonth() + 1;
+        const day = action.date.startDate._d.getDate();
+        checkIn = `${year}-${('00' + month.toString()).slice(-2)}-${('00' + day.toString()).slice(-2)}`;
       }
       if (action.date.endDate) {
-        checkOut = `${action.date.endDate._d.getFullYear()}-${action.date.endDate._d.getMonth() + 1}-${action.date.endDate._d.getDate()}`;
+        const year = action.date.endDate._d.getFullYear();
+        const month = action.date.endDate._d.getMonth() + 1;
+        const day = action.date.endDate._d.getDate();
+        checkOut = `${year}-${('00' + month.toString()).slice(-2)}-${('00' + day.toString()).slice(-2)}`;
       }
       return {
         ...state,
