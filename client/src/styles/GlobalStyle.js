@@ -6,6 +6,13 @@ export default createGlobalStyle`
     * {
         box-sizing : border-box;
     }
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+        font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+        letter-spacing: -0.02em;
+    }
+    a {
+        text-decoration: none;
+    }
     .DateRangePicker {
         width:100%;
         > div {
@@ -29,6 +36,7 @@ export default createGlobalStyle`
     .DayPicker {
         margin: 0 auto;
         box-shadow: none;
+        text-align: center;
     }
     .DateInput {
         display:none;
@@ -108,8 +116,17 @@ export default createGlobalStyle`
     }
     .slick-slider {
         overflow: hidden;
+        height:0;
+        padding-top:66.25%;
+        font-size:0;
         border-radius: 5px;
-        font-size: 0;
+    }
+    .slick-list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     .slick-prev, .slick-next {
         z-index: 1;
@@ -119,5 +136,15 @@ export default createGlobalStyle`
         &.slick-next {
             right: 10px;
         }
+    }
+    .slick-track {
+        display: flex !important;
+        height: 100%;
+    }
+    .slick-slide > div {
+        height: 100%;
+    }
+    .slick-slide img {
+        height: 100%;
     }
 `;
