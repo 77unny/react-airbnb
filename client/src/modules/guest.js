@@ -9,9 +9,9 @@ export const save = () => ({ type: SAVE });
 export const reset = () => ({ type: RESET });
 
 const initialState = {
-  adults: null,
-  children: null,
-  infants: null,
+  adults: 0,
+  children: 0,
+  infants: 0,
   totalGuest: null,
 };
 
